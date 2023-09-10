@@ -4,8 +4,8 @@ const port = process.env.PORT || 3000;
 
 app.get('/api', (req, res) => {
   try {
-    const slack_name = "Tipsy0";
-    const track = "backend";
+    let slack_name = "Tipsy0";
+    let track = "backend";
 
     if (req.query.slack_name) {
       slack_name = req.query.slack_name;
@@ -17,7 +17,7 @@ app.get('/api', (req, res) => {
 
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' });
 
-    const currentUtcTime = new Date(Date.now() + (2 * 60 * 60 * 1000)).toISOString();
+    const currentUtcTime = new Date().toISOString();
 
     const fileUrl = "https://github.com/tipsyx/retask/blob/main/app.js";
 
